@@ -1,35 +1,30 @@
 import React from "react";
-import {
-  Card,
-  Image,
-  Text,
-  Badge,
-  Button,
-  Group,
-  useMantineTheme,
-  Grid,
-} from "@mantine/core";
+import { Card, Image, Grid } from "@mantine/core";
 
-export const BlogComponent: React.FC = () => {
+type Props = {
+  title: string;
+  content: string;
+  image?: string;
+};
+
+export const BlogComponent: React.FC<Props> = ({ title, content }) => {
   return (
     <div style={{ width: 740, margin: "auto" }} className="py-2">
       <Card shadow="sm" p="lg">
         <Grid>
           <Grid.Col span={4}>
-            <Card.Section>
-              <Image
-                src="/img/gollira.jpeg"
-                height={160}
-                width={220}
-                alt="gollira"
-              />
-            </Card.Section>
+            <Image
+              src="/img/gollira.jpeg"
+              height={120}
+              width={180}
+              alt="gollira"
+            />
           </Grid.Col>
           <Grid.Col span={8}>
             <div className="p-1 text-center text-xl font-extrabold">
-              blogtitle
+              {title}
             </div>
-            <div className="text-gray-500">blogtext</div>
+            <div className="text-gray-500">{content}</div>
           </Grid.Col>
         </Grid>
       </Card>
