@@ -15,11 +15,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         padding="md"
         header={
           <Header height={60} p="xs">
-            <Link href="/">
-              <a>
-                <div className="pt-2">ゴリラブログ🦍</div>
-              </a>
-            </Link>
+            <div className="mx-auto max-w-prose">
+              <Link href="/">
+                <a>
+                  <div className="pt-2">ゴリラブログ🦍</div>
+                </a>
+              </Link>
+            </div>
           </Header>
         }
       >

@@ -23,11 +23,6 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           </div>
         );
       })}
-
-      {/* <BlogComponent title="大掃除に役立つもの3選" content="ぶらぶらぶら" />
-      <BlogComponent title="大掃除に役立つもの3選" content="ぶらぶらぶら" />
-      <BlogComponent title="大掃除に役立つもの3選" content="ぶらぶらぶら" />
-      <BlogComponent title="大掃除に役立つもの3選" content="ぶらぶらぶら" /> */}
     </div>
   );
 };
