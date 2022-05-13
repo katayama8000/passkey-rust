@@ -1,8 +1,9 @@
 import "src/lib/tailwind.css";
+import "../styles/global.css";
 import type { AppProps } from "next/app";
-import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
-import { AppShell, Navbar, Header } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
+import { AppShell, Header } from "@mantine/core";
 import Link from "next/link";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -15,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         padding="md"
         header={
           <Header height={60} p="xs">
-            <div className="mx-auto max-w-prose">
+            <div className="mx-auto max-w-6xl">
               <Link href="/">
                 <a>
                   <div className="pt-2">ゴリラブログ🦍</div>

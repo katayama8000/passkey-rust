@@ -9,7 +9,7 @@ type Props = {
 
 export const BlogComponent: React.FC<Props> = ({ title, content }) => {
   return (
-    <div style={{ width: 740, margin: "auto" }} className="py-2">
+    <div style={{ width: 800, margin: "auto" }} className="py-2">
       <Card shadow="sm" p="lg">
         <Grid>
           <Grid.Col span={4}>
