@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { MantineProvider } from "@mantine/core";
 import Head from "next/head";
 import { AppShell, Navbar, Header } from "@mantine/core";
+import Link from "next/link";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,17 +15,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         padding="md"
         header={
           <Header height={60} p="xs">
-            <div className="pt-2">ゴリラブログ🦍</div>
+            <Link href="/">
+              <a>
+                <div className="pt-2">ゴリラブログ🦍</div>
+              </a>
+            </Link>
           </Header>
         }
-        styles={(theme) => ({
-          main: {
-            backgroundColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.dark[8]
-                : theme.colors.gray[0],
-          },
-        })}
       >
         <MantineProvider withGlobalStyles withNormalizeCSS>
           <Component {...pageProps} />
