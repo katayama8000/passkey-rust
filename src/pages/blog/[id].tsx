@@ -8,14 +8,13 @@ import dayjs from "dayjs";
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
 const BlogId: NextPage<Props> = (props) => {
-  console.log("uwawaawa", props.body);
   return (
-    <div>
-      <div className="py-5 px-5">{props.title}</div>
+    <div className="mx-auto max-w-prose">
+      <div className="py-4 text-2xl font-bold">{props.title}</div>
       <time dateTime="props.publishedAt">
         {dayjs(props.publishedAt).format("YYYY年MM月DD日")}
       </time>
-      <div dangerouslySetInnerHTML={{ __html: props.body }} />
+      <div className="prose" dangerouslySetInnerHTML={{ __html: props.body }} />
     </div>
   );
 };

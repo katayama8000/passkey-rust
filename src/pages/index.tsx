@@ -11,7 +11,7 @@ export type Blog = {
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   return (
-    <div>
+    <div className="mx-auto max-w-prose">
       {props.contents.map((content) => {
         return (
           <div key={content.id}>
