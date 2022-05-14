@@ -3,20 +3,21 @@ import { BlogComponent } from "@component/BlogComponent";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import Link from "next/link";
-import { Grid } from "@mantine/core";
+import { Badge, Grid } from "@mantine/core";
 import { Profile } from "@component/Profile";
-import { ComponentProps, useState } from "react";
+import { ComponentProps, useEffect, useState } from "react";
 
 export type Blog = {
   title: string;
   body: string;
   description: string;
   image?: { url: string; height: number; width: number };
-  tag?: string[];
+  tag: string[];
 };
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
+  const [allTags, setAlltags] = useState<string[]>([]);
 
   const handleSubmit: ComponentProps<"form">["onSubmit"] = async (event) => {
     event.preventDefault();
@@ -30,11 +31,26 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
     setSearch(json);
   };
   console.log(search);
-  console.log(props);
+  console.log("全データ", props);
 
   const handleClick: ComponentProps<"button">["onClick"] = async () => {
     setSearch(undefined);
   };
+
+  useEffect(() => {
+    let array: string[] = [];
+    for (let i = 0; i < props.contents.length; i++) {
+      console.log("useEffect", props.contents[i].tag);
+      array.push(...props.contents[i].tag);
+    }
+    console.log("array", array);
+    const filteredArray = array.filter(function (ele, pos) {
+      return array.indexOf(ele) == pos;
+    });
+
+    console.log("The filtered array ", filteredArray);
+    setAlltags(filteredArray);
+  }, []);
 
   const contents = search ? search.contents : props.contents;
   const totalCount = search ? search.totalCount : props.totalCount;
@@ -75,7 +91,20 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           })}
         </Grid.Col>
         <Grid.Col span={3}>
-          <Profile padding="2" />
+          <Profile padding={2} />
+          <div>
+            <Grid>
+              {allTags?.map((tag, index) => (
+                <Grid.Col key={index} span={3}>
+                  <div className="px-1">
+                    <Badge color="teal" size="xl">
+                      {tag}
+                    </Badge>
+                  </div>
+                </Grid.Col>
+              ))}
+            </Grid>
+          </div>
         </Grid.Col>
       </Grid>
     </div>

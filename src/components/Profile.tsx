@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Card, Text } from "@mantine/core";
 
 type Props = {
-  padding?: string;
+  padding?: number;
 };
 export const Profile: React.FC<Props> = ({ padding }) => {
   const [py, setPy] = useState("");
