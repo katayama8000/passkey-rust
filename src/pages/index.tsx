@@ -57,11 +57,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const contents = search ? search.contents : props.contents;
   const totalCount = search ? search.totalCount : props.totalCount;
 
-  const form = useForm({
-    initialValues: {
-      search: "",
-    },
-  });
+  const form = useForm({ initialValues: { search: "" } });
 
   return (
     <div className="mx-auto max-w-6xl">
