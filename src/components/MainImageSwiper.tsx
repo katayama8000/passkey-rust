@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react"; //カルーセル用のタグをインポート
 import SwiperCore, { Pagination, Navigation } from "swiper"; //使いたい機能をインポート
-import { Badge, Grid, Image } from "@mantine/core";
+import { Image } from "@mantine/core";
 
 SwiperCore.use([Pagination, Navigation]);
 
