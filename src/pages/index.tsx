@@ -1,12 +1,14 @@
-import type { GetStaticProps, NextPage } from "next";
-import { BlogComponent } from "@component/BlogComponent";
-import { client } from "src/lib/client";
-import { MicroCMSListResponse } from "microcms-js-sdk";
-import Link from "next/link";
-import { Badge, Grid, Image } from "@mantine/core";
-import { Profile } from "@component/Profile";
 import { ComponentProps, useEffect, useState } from "react";
+import type { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
+import { MicroCMSListResponse } from "microcms-js-sdk";
+import { client } from "src/lib/client";
+//mantine
+import { Badge, Grid } from "@mantine/core";
+//component
 import { MainImageSwiper } from "@component/MainImageSwiper";
+import { BlogComponent } from "@component/BlogComponent";
+import { Profile } from "@component/Profile";
 
 export type Blog = {
   title: string;
@@ -95,19 +97,21 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           })}
         </Grid.Col>
         <Grid.Col span={3}>
-          <Profile padding={2} />
-          <div>
-            <Grid>
-              {allTags?.map((tag, index) => (
-                <Grid.Col key={index} span={3}>
-                  <div className="px-1">
-                    <Badge color="teal" size="xl">
-                      {tag}
-                    </Badge>
-                  </div>
-                </Grid.Col>
-              ))}
-            </Grid>
+          <div className="p-2">
+            <Profile padding={0} />
+            <div>
+              <Grid>
+                {allTags?.map((tag, index) => (
+                  <Grid.Col key={index} span={3}>
+                    <div className="px-1">
+                      <Badge color="teal" size="xl">
+                        {tag}
+                      </Badge>
+                    </div>
+                  </Grid.Col>
+                ))}
+              </Grid>
+            </div>
           </div>
         </Grid.Col>
       </Grid>

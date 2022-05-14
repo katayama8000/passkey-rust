@@ -11,7 +11,6 @@ const images = [
   "img/gollira.jpeg",
   "img/gollira.jpeg",
   "img/gollira.jpeg",
-  "img/gollira.jpeg",
 ];
 
 export const MainImageSwiper = () => {
@@ -27,7 +26,7 @@ export const MainImageSwiper = () => {
       >
         {images.map((src: string, index: number) => {
           return (
-            <SwiperSlide key={`${index}`}>
+            <SwiperSlide key={index}>
               <Image src={src} alt="image" radius="md" fit="contain" />
             </SwiperSlide>
           );
