@@ -1,11 +1,11 @@
-import { ComponentProps, useEffect, useState } from "react";
+import { ComponentProps, useState } from "react";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { client } from "src/lib/client";
 //mantine
-import { Badge, Grid } from "@mantine/core";
-import { TextInput, Checkbox, Button, Group, Box } from "@mantine/core";
+import { Grid } from "@mantine/core";
+import { TextInput, Button } from "@mantine/core";
 import { useForm } from "@mantine/form";
 //component
 import { MainImageSwiper } from "@component/MainImageSwiper";
