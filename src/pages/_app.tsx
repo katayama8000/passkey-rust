@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <AppShell
         padding="md"
+        className="bg-gray-200"
         header={
           <Header height={60} p="xs">
             <div className="mx-auto max-w-6xl">
