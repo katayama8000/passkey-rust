@@ -13,7 +13,7 @@ import { BlogComponent } from "@component/BlogComponent";
 import { Profile } from "@component/Profile";
 import { AllTags } from "@component/AllTags";
 //hooks
-import { useGetAllTags } from "src/hooks/useGetAllTags";
+import { useGetAllTags } from "@hooks/useGetAllTags";
 
 export type Blog = {
   title: string;
