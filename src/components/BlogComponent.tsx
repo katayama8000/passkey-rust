@@ -16,9 +16,6 @@ export const BlogComponent: React.FC<Props> = ({
   image,
   tags,
 }) => {
-  console.log("image", image);
-  console.log("content", content);
-  console.log("tags", tags);
   const [displaycontent, setDisplaycontent] = useState(content);
 
   useEffect(() => {

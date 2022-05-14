@@ -11,6 +11,8 @@ import { useForm } from "@mantine/form";
 import { MainImageSwiper } from "@component/MainImageSwiper";
 import { BlogComponent } from "@component/BlogComponent";
 import { Profile } from "@component/Profile";
+//hooks
+import { useGetAllTags } from "src/hooks/useGetAllTags";
 
 export type Blog = {
   title: string;
@@ -22,7 +24,7 @@ export type Blog = {
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
-  const [allTags, setAlltags] = useState<string[]>([]);
+  const allTags = useGetAllTags(props.contents);
 
   const handleSubmit = async (value: { search: string | number }) => {
     const q = value.search;
@@ -38,21 +40,6 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const handleClick: ComponentProps<"button">["onClick"] = async () => {
     setSearch(undefined);
   };
-
-  useEffect(() => {
-    let array: string[] = [];
-    for (let i = 0; i < props.contents.length; i++) {
-      console.log("useEffect", props.contents[i].tag);
-      array.push(...props.contents[i].tag);
-    }
-    console.log("array", array);
-    const filteredArray = array.filter(function (ele, pos) {
-      return array.indexOf(ele) == pos;
-    });
-
-    console.log("The filtered array ", filteredArray);
-    setAlltags(filteredArray);
-  }, []);
 
   const contents = search ? search.contents : props.contents;
   const totalCount = search ? search.totalCount : props.totalCount;
