@@ -18,8 +18,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Header height={60} p="xs">
             <div className="mx-auto max-w-6xl">
               <Link href="/">
-                <a>
-                  <div className="pt-2">ゴリラブログ🦍</div>
+                <a className="no-underline">
+                  <div className="text-xl font-extrabold">ゴリラブログ🦍</div>
                 </a>
               </Link>
             </div>
