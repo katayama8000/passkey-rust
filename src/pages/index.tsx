@@ -11,14 +11,12 @@ export type Blog = {
   title: string;
   body: string;
   description: string;
+  image?: { url: string; height: number; width: number };
+  tag?: string[];
 };
 
 const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
-
-  const handleClick: ComponentProps<"button">["onClick"] = async () => {
-    setSearch(undefined);
-  };
 
   const handleSubmit: ComponentProps<"form">["onSubmit"] = async (event) => {
     event.preventDefault();
@@ -31,7 +29,15 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
     const json: MicroCMSListResponse<Blog> = await data.json();
     setSearch(json);
   };
+  console.log(search);
   console.log(props);
+
+  const handleClick: ComponentProps<"button">["onClick"] = async () => {
+    setSearch(undefined);
+  };
+
+  const contents = search ? search.contents : props.contents;
+  const totalCount = search ? search.totalCount : props.totalCount;
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -46,9 +52,12 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           リセット
         </button>
       </form>
+      <p className="my-3 py-3 text-gray-500">{`${
+        search ? "検索結果" : "記事の総数"
+      }:${totalCount}件`}</p>
       <Grid>
         <Grid.Col span={9}>
-          {props.contents.map((content) => {
+          {contents.map((content) => {
             return (
               <div key={content.id}>
                 <Link href={`/blog/${content.id}`}>
@@ -56,6 +65,8 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
                     <BlogComponent
                       title={content.title}
                       content={content.description}
+                      image={content.image}
+                      tags={content.tag}
                     />
                   </a>
                 </Link>
@@ -65,8 +76,6 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
         </Grid.Col>
         <Grid.Col span={3}>
           <Profile padding="2" />
-          <Profile />
-          <Profile />
         </Grid.Col>
       </Grid>
     </div>

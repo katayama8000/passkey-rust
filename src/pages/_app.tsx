@@ -26,9 +26,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           </Header>
         }
       >
-        <MantineProvider withGlobalStyles withNormalizeCSS>
-          <Component {...pageProps} />
-        </MantineProvider>
+        <main>
+          <MantineProvider withGlobalStyles withNormalizeCSS>
+            <Component {...pageProps} />
+          </MantineProvider>
+        </main>
       </AppShell>
     </>
   );
