@@ -11,6 +11,7 @@ import { useForm } from "@mantine/form";
 import { MainImageSwiper } from "@component/MainImageSwiper";
 import { BlogComponent } from "@component/BlogComponent";
 import { Profile } from "@component/Profile";
+import { AllTags } from "@component/AllTags";
 //hooks
 import { useGetAllTags } from "src/hooks/useGetAllTags";
 
@@ -73,7 +74,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           </div>
           {contents.length === 0 ? (
             <div className="mt-5 flex w-full justify-center">
-              <p className="align-center rounded border border-cyan-300 p-5 text-cyan-500">
+              <p className="p-5 text-xl text-cyan-500">
                 記事が見つかりませんでした。
               </p>
             </div>
@@ -99,19 +100,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
         <Grid.Col span={3}>
           <div className="p-2">
             <Profile padding={0} />
-            <div>
-              <Grid>
-                {allTags?.map((tag, index) => (
-                  <Grid.Col key={index} span={3}>
-                    <div className="px-1">
-                      <Badge color="teal" size="xl">
-                        {tag}
-                      </Badge>
-                    </div>
-                  </Grid.Col>
-                ))}
-              </Grid>
-            </div>
+            <AllTags allTags={allTags} />
           </div>
         </Grid.Col>
       </Grid>
