@@ -19,8 +19,8 @@ export const BlogComponent: React.FC<Props> = ({
   console.log("tags", tags);
 
   return (
-    <div style={{ width: 800, margin: "auto" }} className="py-2">
-      <Card shadow="sm" p="lg">
+    <div className="m-auto py-2">
+      <Card shadow="sm">
         <Grid>
           <Grid.Col span={4}>
             <Image
@@ -33,7 +33,7 @@ export const BlogComponent: React.FC<Props> = ({
             />
           </Grid.Col>
           <Grid.Col span={8}>
-            <div className="p-1 text-center text-xl font-extrabold">
+            <div className="py-1 text-center text-xl font-extrabold">
               {title}
             </div>
             <div className="text-gray-500">{content}</div>

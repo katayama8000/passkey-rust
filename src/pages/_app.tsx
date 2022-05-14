@@ -5,6 +5,7 @@ import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { AppShell, Header } from "@mantine/core";
 import Link from "next/link";
+import "swiper/css/bundle";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

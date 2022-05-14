@@ -1,39 +1,37 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react"; //カルーセル用のタグをインポート
+import SwiperCore, { Pagination, Navigation } from "swiper"; //使いたい機能をインポート
+import { Badge, Grid, Image } from "@mantine/core";
 
-export default class SimpleSlider extends Component {
-  render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    };
-    return (
-      <div>
-        <h2> Single Item</h2>
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-      </div>
-    );
-  }
-}
+SwiperCore.use([Pagination, Navigation]);
+
+// カルーセルにする画像のソースをリストにします
+const images = [
+  "img/gollira.jpeg",
+  "img/gollira.jpeg",
+  "img/gollira.jpeg",
+  "img/gollira.jpeg",
+  "img/gollira.jpeg",
+];
+
+const TestCarousel = () => {
+  return (
+    <Swiper
+      slidesPerView={1} //一度に表示するスライドの数
+      pagination={{
+        clickable: true,
+      }} //　何枚目のスライドかを示すアイコン、スライドの下の方にある
+      navigation //スライドを前後させるためのボタン、スライドの左右にある
+      loop={true}
+    >
+      {images.map((src: string, index: number) => {
+        return (
+          <SwiperSlide key={`${index}`}>
+            <Image src={src} width={640} height={400} alt="gollira" />
+          </SwiperSlide>
+        );
+      })}
+    </Swiper>
+  );
+};
+
+export default TestCarousel;
