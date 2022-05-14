@@ -29,6 +29,7 @@ export const BlogComponent: React.FC<Props> = ({
               width={180}
               alt="gollira"
               withPlaceholder
+              radius="md"
             />
           </Grid.Col>
           <Grid.Col span={8}>

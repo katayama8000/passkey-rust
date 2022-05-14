@@ -3,7 +3,7 @@ import { BlogComponent } from "@component/BlogComponent";
 import { client } from "src/lib/client";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import Link from "next/link";
-import { Badge, Grid } from "@mantine/core";
+import { Badge, Grid, Image } from "@mantine/core";
 import { Profile } from "@component/Profile";
 import { ComponentProps, useEffect, useState } from "react";
 
@@ -73,6 +73,15 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
       }:${totalCount}件`}</p>
       <Grid>
         <Grid.Col span={9}>
+          <div>
+            <Image
+              src="img/gollira.jpeg"
+              alt="image"
+              className="p-8"
+              radius="md"
+              fit="contain"
+            />
+          </div>
           {contents.map((content) => {
             return (
               <div key={content.id}>
