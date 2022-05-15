@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Image, Grid, Badge } from "@mantine/core";
+import { useMakeString } from "@hooks/useMakeString";
 
 type Props = {
   title: string;
@@ -8,21 +9,14 @@ type Props = {
   tags?: string[];
 };
 
-const MAX_CONTENT_LENGTH = 95;
-
 export const BlogComponent: React.FC<Props> = ({
   title,
   content,
   image,
   tags,
 }) => {
-  const [displaycontent, setDisplaycontent] = useState(content);
-
-  useEffect(() => {
-    if (content.length > MAX_CONTENT_LENGTH) {
-      setDisplaycontent(content.substring(0, MAX_CONTENT_LENGTH) + "...");
-    }
-  }, []);
+  const displayTitle = useMakeString(title, 15);
+  const displayContent = useMakeString(content, 95);
 
   return (
     <div className="m-auto py-4">
@@ -40,9 +34,9 @@ export const BlogComponent: React.FC<Props> = ({
           </Grid.Col>
           <Grid.Col span={8}>
             <div className="py-1 text-center text-xl font-extrabold">
-              {title}
+              {displayTitle}
             </div>
-            <div className="text-gray-500">{displaycontent}</div>
+            <div className="text-gray-500">{displayContent}</div>
             <div className="flex flex-row-reverse">
               {tags?.map((tag, index) => (
                 <div key={index} className="px-1">

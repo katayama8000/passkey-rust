@@ -1,8 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 
 export const useGetAllTags = (contents: any) => {
-  console.log("props", contents);
-
   const [allTags, setAlltags] = useState<string[]>([]);
   useEffect(() => {
     let array: string[] = [];

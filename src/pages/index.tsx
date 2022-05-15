@@ -12,6 +12,7 @@ import { MainImageSwiper } from "@component/MainImageSwiper";
 import { BlogComponent } from "@component/BlogComponent";
 import { Profile } from "@component/Profile";
 import { AllTags } from "@component/AllTags";
+import { Footer } from "@component/Footer";
 //hooks
 import { useGetAllTags } from "@hooks/useGetAllTags";
 
@@ -104,6 +105,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           </div>
         </Grid.Col>
       </Grid>
+      <Footer />
     </div>
   );
 };
