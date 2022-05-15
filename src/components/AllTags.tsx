@@ -1,4 +1,4 @@
-import { Badge, Grid } from "@mantine/core";
+import { Button, Grid } from "@mantine/core";
 
 type Props = {
   allTags: string[];
@@ -9,10 +9,10 @@ export const AllTags: React.FC<Props> = ({ allTags }) => {
       <Grid>
         {allTags?.map((tag, index) => (
           <Grid.Col key={index} span={3}>
-            <div className="px-1">
-              <Badge color="teal" size="xl">
+            <div className="pr-1 pt-2">
+              <Button variant="light" color="lime">
                 {tag}
-              </Badge>
+              </Button>
             </div>
           </Grid.Col>
         ))}

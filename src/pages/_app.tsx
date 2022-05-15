@@ -1,17 +1,16 @@
 import "src/lib/tailwind.css";
-import "../styles/global.css";
+import "swiper/css/bundle";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { Button, MantineProvider, TextInput } from "@mantine/core";
-import { AppShell, Header } from "@mantine/core";
 import Link from "next/link";
-import "swiper/css/bundle";
+import { MantineProvider } from "@mantine/core";
+import { AppShell, Header } from "@mantine/core";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>🦍katayama blog</title>
+        <title>ゴリラブログ</title>
       </Head>
       <AppShell
         padding="md"

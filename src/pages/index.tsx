@@ -99,7 +99,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           )}
         </Grid.Col>
         <Grid.Col span={3}>
-          <div className="p-2">
+          <div className="px-2">
             <Profile padding={0} />
             <AllTags allTags={allTags} />
           </div>
