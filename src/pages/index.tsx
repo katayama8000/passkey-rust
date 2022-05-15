@@ -3,10 +3,12 @@ import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { client } from "src/lib/client";
+import { Button } from "src/lib/mantine/Button";
 //mantine
 import { Grid } from "@mantine/core";
-import { TextInput, Button } from "@mantine/core";
+import { TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { BiSearchAlt2 } from "react-icons/bi";
 //component
 import { MainImageSwiper } from "@component/MainImageSwiper";
 import { BlogComponent } from "@component/BlogComponent";
@@ -28,7 +30,7 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
   const allTags = useGetAllTags(props.contents);
 
-  const handleSubmit = async (value: { search: string | number }) => {
+  const handleSubmit = async (value: { search: string }) => {
     const q = value.search;
     const data = await fetch("/api/search", {
       method: "POST",
@@ -55,12 +57,16 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
           onSubmit={form.onSubmit((values) => handleSubmit(values))}
           className="mt-2 flex gap-x-2"
         >
+          <BiSearchAlt2 />
           <TextInput
             placeholder="searching..."
+            type="text"
             {...form.getInputProps("search")}
           />
-          <Button type="submit">検索</Button>
-          <Button type="reset" onClick={handleClick}>
+          <Button type="submit" dent>
+            検索
+          </Button>
+          <Button type="reset" onClick={handleClick} dent>
             リセット
           </Button>
         </form>
@@ -101,6 +107,9 @@ const Home: NextPage<MicroCMSListResponse<Blog>> = (props) => {
         <Grid.Col span={3}>
           <div className="px-2">
             <Profile padding={0} />
+            <Button fullWidth color="teal" className="mt-2">
+              タグ
+            </Button>
             <AllTags allTags={allTags} />
           </div>
         </Grid.Col>
