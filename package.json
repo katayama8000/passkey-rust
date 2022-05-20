@@ -13,6 +13,7 @@
     "@mantine/form": "^4.2.4",
     "@mantine/hooks": "^4.2.2",
     "@mantine/next": "^4.2.2",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
     "@types/react-slick": "^0.23.8",
     "dayjs": "^1.11.2",

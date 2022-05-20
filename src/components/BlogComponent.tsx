@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Card, Image, Grid, Badge } from "@mantine/core";
-import { useMakeString } from "@hooks/useMakeString";
 
 type Props = {
   title: string;
@@ -15,9 +14,6 @@ export const BlogComponent: React.FC<Props> = ({
   image,
   tags,
 }) => {
-  const displayTitle = useMakeString(title, 15);
-  const displayContent = useMakeString(content, 95);
-
   return (
     <div className="m-auto py-4">
       <Card shadow="sm">
@@ -33,10 +29,10 @@ export const BlogComponent: React.FC<Props> = ({
             />
           </Grid.Col>
           <Grid.Col span={8}>
-            <div className="py-1 text-center text-xl font-extrabold">
-              {displayTitle}
+            <div className="py-1 text-center text-xl font-extrabold line-clamp-1">
+              {title}
             </div>
-            <div className="text-gray-500">{displayContent}</div>
+            <div className="text-gray-500 line-clamp-2">{content}</div>
             <div className="flex flex-row-reverse">
               {tags?.map((tag, index) => (
                 <div key={index} className="px-1">

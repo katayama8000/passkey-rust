@@ -10,5 +10,5 @@ module.exports = {
       xl: "1400px",
     },
   },
-  plugins: [require('@tailwindcss/typography'), ],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp'),],
 };
