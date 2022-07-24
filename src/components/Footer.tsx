@@ -1,10 +1,11 @@
 import React from "react";
 
 export const Footer = () => {
-  const year: number = 2022;
+  const today = new Date();
+  const year = today.getFullYear();
   return (
     <div>
-      <div className="text-center">© {year} katayama</div>
+      <div className="text-center">© {year} good-katayama-family</div>
     </div>
   );
 };

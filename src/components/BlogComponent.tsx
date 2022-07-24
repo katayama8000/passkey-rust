@@ -15,7 +15,7 @@ export const BlogComponent: React.FC<Props> = ({
   tags,
 }) => {
   return (
-    <div className="m-auto py-4">
+    <div className="m-auto">
       <Card shadow="sm">
         <Grid>
           <Grid.Col span={4}>
